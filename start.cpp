@@ -169,7 +169,7 @@ int main()
       else if(d!='M'&&src!='M')
       {
         cout<<"reached"<<endl;
-      //  cout<<"s="<<src<<"d="<<d<<endl;
+        //cout<<"s="<<src<<"d="<<d<<endl;
         if(src=='A')
         {
           if(d=='B')
@@ -306,6 +306,10 @@ int main()
       }
       if(d=='M')
       {
+        if(memory.count(h)==0)
+          memory.insert(pair <int, int> (h,0));
+
+
         switch(src){
           case 'A':
           memory.at(h)=a;
@@ -334,8 +338,25 @@ int main()
       }
 
     }
+
+    }
+    else if(cmd=="INX")
+    {//cout<<"reach h="<<h<<endl;
+      char op;
+      cin>>op;
+      if(op=='H')
+      h++;
+      else if(op=='L')
+      l++;
+      else
+      {
+        cout<<"Syntax error"<<endl;
+        exit(0);
+      }
+    //  cout<<"yo h="<<h<<endl;
   //cout<<cmd<<endl;
   }
+
 }
   display();
   return 0;
