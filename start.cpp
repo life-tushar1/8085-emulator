@@ -32,14 +32,23 @@ int hexToint(string hex)
 
    }
    return s;
-
- }
+}
 int stringToint(string str)
 {
   int s=0;
   for(int i=0;i<str.length();i++)
   s=(s*10)+charToint(str[i]);
   return s;
+}
+
+void display()
+{
+  map <int, int> :: iterator it;
+    for (it= memory.begin(); it != memory.end(); ++it)
+      {
+          cout  <<  '\t' << it->first <<  '\t' << it->second << '\n';
+      }
+  cout<<"A"<<a<<endl<<"B"<<b<<endl<<"C"<<c<<endl<<"D"<<d<<endl<<"E"<<e<<endl<<"H"<<h<<endl<<"L"<<l<<endl;
 }
 
 int main()
@@ -66,12 +75,6 @@ int main()
     memory.insert(pair <int ,int> (dec,dec1));
     n--;
   }
-/*  map <int, int> :: iterator it;
-  for (it= memory.begin(); it != memory.end(); ++it)
-    {
-        cout  <<  '\t' << it->first <<  '\t' << it->second << '\n';
-    }*/
-  //cout<<a<<endl<<b;
   fclose(fp);
   //cout<<"reached";
   fp=freopen("instruction.txt","r",stdin);
