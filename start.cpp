@@ -356,6 +356,36 @@ int main()
     //  cout<<"yo h="<<h<<endl;
   //cout<<cmd<<endl;
   }
+  else if(cmd=="ADD")
+  {
+    char op;
+    cin>>op;
+    switch(op)
+    {
+      case 'M':
+      dec=memory.find(h)->second;
+      a=a+dec;
+      break;
+      case 'B':
+      a=a+b;
+      break;
+      case 'C':
+      a=a+c;
+      break;
+      case 'D':
+      a=a+d;
+      break;
+      case 'H':
+      a=a+h;
+      break;
+      case 'L':
+      a=a+l;
+      break;
+      default:
+      cout<<"Syntax error"<<endl;
+      exit(0);
+    }
+  }
 
 }
   display();
