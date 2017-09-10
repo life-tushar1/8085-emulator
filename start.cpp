@@ -5,8 +5,8 @@
 #include<math.h>
 using namespace std;
  map <int, int> memory;
- int a,b,c,d,e,h,l;
- bool zero,carry,sign,overflow;
+ int a=0,b=0,c=0,d=0,e=0,h=0,l=0;
+ bool flag[4]={false};
 
 int charToint(char c)
 {
@@ -44,7 +44,7 @@ int stringToint(string str)
 
 int main()
 {
-  FILE *fp;
+  FILE *fp,*fp2;
   fp=freopen("load_mem.txt","r",stdin);
   int n;
   cin>>n;
@@ -66,11 +66,37 @@ int main()
     memory.insert(pair <int ,int> (dec,dec1));
     n--;
   }
-  map <int, int> :: iterator it;
+/*  map <int, int> :: iterator it;
   for (it= memory.begin(); it != memory.end(); ++it)
     {
         cout  <<  '\t' << it->first <<  '\t' << it->second << '\n';
-    }
+    }*/
   //cout<<a<<endl<<b;
+  fclose(fp);
+  //cout<<"reached";
+  fp=freopen("instruction.txt","r",stdin);
+  string cmd="";
+  //cout<<cmd;
+  while(cmd!="HLT")
+  {
+    cmd="";
+    cin>>cmd;string val="";int dec;
+    if(cmd=="LXI")
+    {
+      char op1;
+      cin>>op1>>val;
+      if(val[val.length()-1]=='H')
+       dec=hexToint(val);
+      else
+       dec=stringToint(val);
+    }
+
+
+
+
+
+
+    //cout<<cmd<<endl;
+  }
   return 0;
 }
