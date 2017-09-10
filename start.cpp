@@ -22,19 +22,25 @@ int hexAlphaInt(char c)
 
 int hexToint(string hex)
  {int s=0;
-   for(int i=hex.length()-1;i>=0;i--)
+   for(int i=hex.length()-2;i>=0;i--)
    {
      if(hex[i]>='0'&&hex[i]<='9')
      {//cout<<hex[i]<<" "<<charToint(hex[i])<<endl;
-     s=s+(charToint(hex[i])*pow(16,hex.length()-1-i));}
+     s=s+(charToint(hex[i])*pow(16,hex.length()-2-i));}
      else
-     s=s+(hexAlphaInt(hex[i])*pow(16,hex.length()-1-i));
+     s=s+(hexAlphaInt(hex[i])*pow(16,hex.length()-2-i));
 
    }
    return s;
 
  }
-
+int stringToint(string str)
+{
+  int s=0;
+  for(int i=0;i<str.length();i++)
+  s=(s*10)+charToint(str[i]);
+  return s;
+}
 
 int main()
 {
@@ -42,15 +48,29 @@ int main()
   fp=freopen("load_mem.txt","r",stdin);
   int n;
   cin>>n;
+  //memory initialisation and load it into map
   while(n>0)
   {
-    string hex="";
-    int val;
-    cin>>hex>>val;
-    int dec=hexToint(hex);
-    cout<<dec<<endl;
+    string mem="",val="";int dec,dec1;
+    cin>>mem>>val;
+    if(mem[mem.length()-1]=='H')
+     dec=hexToint(mem);
+    else
+     dec=stringToint(mem);
+
+    if(val[val.length()-1]=='H')
+     dec1=hexToint(val);
+    else
+     dec1=stringToint(val);
+    //cout<<dec<<endl;
+    memory.insert(pair <int ,int> (dec,dec1));
     n--;
   }
+  map <int, int> :: iterator it;
+  for (it= memory.begin(); it != memory.end(); ++it)
+    {
+        cout  <<  '\t' << it->first <<  '\t' << it->second << '\n';
+    }
   //cout<<a<<endl<<b;
   return 0;
 }
