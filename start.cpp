@@ -168,32 +168,140 @@ int main()
       }
       else if(d!='M'&&src!='M')
       {
-        switch(src)
+        cout<<"reached"<<endl;
+      //  cout<<"s="<<src<<"d="<<d<<endl;
+        if(src=='A')
         {
-          case 'A':
+          if(d=='B')
+          b=a;
+          else if(d=='C')
+          c=a;
+          else if(d=='D')
           d=a;
-          break;
-          case 'B':
+          else if(d=='E')
+          e=a;
+          else if(d=='H')
+          h=a;
+          else if(d=='L')
+          l=a;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
+        }
+        else if(src=='B')
+        {
+          if(d=='A')
+          a=b;
+          else if(d=='C')
+          c=b;
+          else if(d=='D')
           d=b;
-          break;
-          case 'C':
+          else if(d=='E')
+          e=b;
+          else if(d=='H')
+          h=b;
+          else if(d=='L')
+          l=b;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
+        }
+        else if(src=='C')
+        {
+          if(d=='A')
+          a=c;
+          else if(d=='B')
+          b=c;
+          else if(d=='D')
           d=c;
-          break;
-          case 'D':
-          d=d;
-          break;
-          case 'E':
-          d=e;
-          break;
-          case 'H':
-          d=h;
-          break;
-          case 'L':
+          else if(d=='E')
+          e=c;
+          else if(d=='H')
+          h=c;
+          else if(d=='L')
+          l=c;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
+        }
+        else if(src=='L')
+        {
+          if(d=='A')
+          a=l;
+          else if(d=='B')
+          b=l;
+          else if(d=='D')
           d=l;
-          break;
-          default:
-          cout<<"Syntax error"<<endl;
-          exit(0);
+          else if(d=='E')
+          e=l;
+          else if(d=='H')
+          h=l;
+          else if(d=='C')
+          c=l;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
+        }
+        else if(src=='D')
+        {
+          if(d=='A')
+          a=d;
+          else if(d=='B')
+          b=d;
+          else if(d=='c')
+          c=d;
+          else if(d=='E')
+          e=d;
+          else if(d=='H')
+          h=d;
+          else if(d=='L')
+          l=d;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
+        }
+        else if(src=='E')
+        {
+          if(d=='A')
+          a=e;
+          else if(d=='B')
+          b=e;
+          else if(d=='D')
+          d=e;
+          else if(d=='C')
+          c=e;
+          else if(d=='H')
+          h=e;
+          else if(d=='L')
+          l=e;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
+        }
+        else if(src=='H')
+        {
+          if(d=='A')
+          a=h;
+          else if(d=='B')
+          b=h;
+          else if(d=='D')
+          d=h;
+          else if(d=='E')
+          e=h;
+          else if(d=='C')
+          c=h;
+          else if(d=='L')
+          e=h;
+          else
+          {
+            cout<<"Syntax error"<<endl;exit(0);
+          }
         }
       }
       if(d=='M')
