@@ -4,6 +4,7 @@
 #include<map>
 #include<math.h>
 #include "cmdUtility.h"
+
 using namespace std;
 int charToint(char c)
 {

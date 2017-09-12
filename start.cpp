@@ -1,35 +1,14 @@
 #include "utility.h"
+#include "memoryInitial.h"
 using namespace std;
 map <int, int> memory;
  int a=0,b=0,c=0,d=0,e=0,h=0,l=0;
  bool flag[4]={false};
 int main()
 {
-  FILE *fp,*fp2;
-  fp=freopen("load_mem.txt","r",stdin);
-  int n;
-  cin>>n;
-  //memory initialisation and load it into map
-  while(n>0)
-  {
-    string mem="",val="";int dec,dec1;
-    cin>>mem>>val;
-    if(mem[mem.length()-1]=='H')
-     dec=hexToint(mem);
-    else
-     dec=stringToint(mem);
-
-    if(val[val.length()-1]=='H')
-     dec1=hexToint(val);
-    else
-     dec1=stringToint(val);
-    //cout<<dec<<endl;
-    memory.insert(pair <int ,int> (dec,dec1));
-    n--;
-  }
-  fclose(fp);
-  //cout<<"reached";
-  fp=freopen("instruction.txt","r",stdin);
+  memoryInt(memory);
+  FILE *fp2;
+  fp2=freopen("instruction.txt","r",stdin);
   string cmd="";
   //cout<<cmd;
   while(cmd!="HLT")
