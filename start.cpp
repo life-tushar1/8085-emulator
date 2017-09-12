@@ -3,8 +3,6 @@ using namespace std;
 map <int, int> memory;
  int a=0,b=0,c=0,d=0,e=0,h=0,l=0;
  bool flag[4]={false};
-
-
 int main()
 {
   FILE *fp,*fp2;
@@ -46,45 +44,22 @@ int main()
        dec=hexToint(val);
       else
        dec=stringToint(val);
-       switch(op1){
-         case 'A':
-         a=dec;
-         break;
-         case 'B':
-         b=dec;
-         break;
-         case 'C':
-         c=dec;
-         break;
-         case 'D':
-         d=dec;
-         break;
-         case 'E':
-         e=dec;
-         break;
-         case 'H':
-         h=dec;
-         break;
-         case 'L':
-         l=dec;
-         break;
-         default:
-         cout<<"Syntax error"<<endl;
-         exit(0);
-       }
+       switchAssi(op1,dec,&a,&b,&c,&d,&e,&h,&l);
     }
     else if(cmd=="MOV")
     {
     //  cout<<"rached"<<endl;
       string des="";char src;
       cin>>des;
+
     //  cout<<"des "<<des<<endl;
       if(des[des.length()-1]!=',')
       {
         cout<<"Syntax error"<<endl;exit(0);
       }
       cin>>src;
-      char d=des[0];
+    //  cout<<"des = "<<des<<" src = "<<src<<endl;
+      char dd=des[0];
     //  cout<<" d "<<d<<endl;
     //  cout<<"src "<<src<<endl;
       if(src=='M')
@@ -92,37 +67,11 @@ int main()
       //  cout<<"rec"<<endl;
       dec=memory.find(h)->second;
     //  cout<<"dec "<<dec<<endl;
-        switch(d){
-          case 'A':
-          a=dec;
-          break;
-          case 'B':
-          b=dec;
-          break;
-          case 'C':
-          c=dec;
-          break;
-          case 'D':
-          d=dec;
-          break;
-          case 'E':
-          e=dec;
-          break;
-          case 'H':
-          h=dec;
-          break;
-          case 'L':
-          l=dec;
-          break;
-          default:
-          cout<<"Syntax error"<<endl;
-          exit(0);
-        }
-
+      switchAssi(dd,dec,&a,&b,&c,&d,&e,&h,&l);
       }
-      else if(d!='M'&&src!='M')
+      else if(dd!='M'&&src!='M')
       {
-        cout<<"reached"<<endl;
+      //  cout<<"reached d!M src!m"<<endl;
         //cout<<"s="<<src<<"d="<<d<<endl;
         if(src=='A')
         {
@@ -258,39 +207,11 @@ int main()
           }
         }
       }
-      if(d=='M')
+      if(dd=='M')
       {
         if(memory.count(h)==0)
           memory.insert(pair <int, int> (h,0));
-
-
-        switch(src){
-          case 'A':
-          memory.at(h)=a;
-          break;
-          case 'B':
-          memory.at(h)=b;
-          break;
-          case 'C':
-          memory.at(h)=c;
-          break;
-          case 'D':
-          memory.at(h)=d;
-          break;
-          case 'E':
-          memory.at(h)=e;
-          break;
-          case 'H':
-          memory.at(h)=h;
-          break;
-          case 'L':
-          memory.at(h)=l;
-          break;
-          default:
-          cout<<"Syntax error"<<endl;
-          exit(0);
-      }
-
+        switchMemAccess(src,h,memory,&a,&b,&c,&d,&e,&h,&l);
     }
 
     }
