@@ -1,6 +1,6 @@
-#include "utility.h"
-#include "memoryInitial.h"
+#include "all.h"
 using namespace std;
+
 map <int, int> memory;
  int a=0,b=0,c=0,d=0,e=0,h=0,l=0;
  bool flag[4]={false};
@@ -19,11 +19,12 @@ int main()
     {
       char op1;
       cin>>op1>>val;
-      if(val[val.length()-1]=='H')
+      exeLxi(val,op1,&a,&b,&c,&d,&e,&h,&l);
+      /*if(val[val.length()-1]=='H')
        dec=hexToint(val);
       else
        dec=stringToint(val);
-       switchAssi(op1,dec,&a,&b,&c,&d,&e,&h,&l);
+       switchAssi(op1,dec,&a,&b,&c,&d,&e,&h,&l);*/
     }
     else if(cmd=="MOV")
     {
