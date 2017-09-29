@@ -40,23 +40,14 @@ int main()
     {//cout<<"reach h="<<h<<endl;
       char op;
       cin>>op;
-      if(op=='H')
-      h++;
-      else if(op=='L')
-      l++;
-      else
-      {
-        cout<<"Syntax error"<<endl;
-        exit(0);
-      }
-    //  cout<<"yo h="<<h<<endl;
-  //cout<<cmd<<endl;
-  }
+      exeInx(op,&h,&l);
+    }
   else if(cmd=="ADD")
   {
     char op;
     cin>>op;
-    switch(op)
+    exeAdd(op,memory,&a,&b,&c,&d,&e,&h,&l);
+    /*switch(op)
     {
       case 'M':
       dec=memory.find(h)->second;
@@ -80,7 +71,7 @@ int main()
       default:
       cout<<"Syntax error"<<endl;
       exit(0);
-    }
+    }*/
   }
 
 }
