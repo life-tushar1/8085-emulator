@@ -42,37 +42,32 @@ int main()
       cin>>op;
       exeInx(op,&h,&l);
     }
+    else if(cmd=="DCX")
+    {//cout<<"reach h="<<h<<endl;
+      char op;
+      cin>>op;
+      exeDcx(op,&h,&l);
+    }
   else if(cmd=="ADD")
   {
     char op;
     cin>>op;
     exeAdd(op,memory,&a,&b,&c,&d,&e,&h,&l);
-    /*switch(op)
-    {
-      case 'M':
-      dec=memory.find(h)->second;
-      a=a+dec;
-      break;
-      case 'B':
-      a=a+b;
-      break;
-      case 'C':
-      a=a+c;
-      break;
-      case 'D':
-      a=a+d;
-      break;
-      case 'H':
-      a=a+h;
-      break;
-      case 'L':
-      a=a+l;
-      break;
-      default:
-      cout<<"Syntax error"<<endl;
-      exit(0);
-    }*/
+
   }
+  else if(cmd=="INR")
+  {
+    char op;
+    cin>>op;
+    exeInr(op,&a,&b,&c,&d,&e,&h,&l);
+  }
+  else if(cmd=="DCR")
+  {
+    char op;
+    cin>>op;
+    exeInr(op,&a,&b,&c,&d,&e,&h,&l);
+  }
+
 
 }
   display(memory,a,b,c,d,e,h,l);

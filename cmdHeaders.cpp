@@ -41,6 +41,74 @@ void exeInx(char op,int *h,int *l)
     exit(0);
   }
 }
+void exeInr(char op,int *a,int *b,int *c,int *d,int *e,int *h,int *l)
+{
+  switch(op)
+  {
+    case 'A':
+    *a+=1;
+    break;
+    case 'B':
+    *b+=1;
+    break;
+    case 'C':
+    *c+=1;
+    break;
+    case 'D':
+    *d+=1;
+    break;
+    case 'E':
+    *e+=1;
+    break;
+    case 'M':
+    *h+=1;
+    break;
+    default:
+    cout<<"Syntax error"<<endl;
+    exit(0);
+
+  }
+}
+void exeDcr(char op,int *a,int *b,int *c,int *d,int *e,int *h,int *l)
+{
+  switch(op)
+  {
+    case 'A':
+    *a-=1;
+    break;
+    case 'B':
+    *b-=1;
+    break;
+    case 'C':
+    *c-=1;
+    break;
+    case 'D':
+    *d-=1;
+    break;
+    case 'E':
+    *e-=1;
+    break;
+    case 'M':
+    *h-=1;
+    break;
+    default:
+    cout<<"Syntax error"<<endl;
+    exit(0);
+
+  }
+}
+void exeDcx(char op,int *h,int *l)
+{
+  if(op=='H')
+  *h-=1;
+  else if(op=='L')
+  *l-=1;
+  else
+  {
+    cout<<"Syntax error"<<endl;
+    exit(0);
+  }
+}
 void exeAdd(char op,map <int, int> &memory,int *a,int *b,int *c,int *d,int *e,int *h,int *l)
 {
   int dec;
